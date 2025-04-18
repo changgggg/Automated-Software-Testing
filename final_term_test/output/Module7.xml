@@ -1,0 +1,889 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.4 on win32)" generated="2024-05-18T21:42:32.361085" rpa="false" schemaversion="5">
+<suite id="s1" name="Module7" source="C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot">
+<test id="s1-t1" name="Module7_1" line="10">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:42:32.659326" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:42:32.659326" elapsed="12.544439"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:42:45.204762" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 1.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>1</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:42:45.203765" elapsed="1.061165"/>
+</kw>
+<kw name="Get Product Names">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:42:46.271946" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//div[contains(@class, 'prdocutname')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:42:46.266924" elapsed="0.005022"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:42:46.271946" level="INFO">${product_names} = []</msg>
+<var>${product_names}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:42:46.271946" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:42:46.272943" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_names}</arg>
+<arg>${product_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:42:46.272943" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:42:46.272943" elapsed="0.000000"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:42:46.271946" elapsed="0.000997"/>
+</for>
+<return>
+<value>${product_names}</value>
+<status status="PASS" start="2024-05-18T21:42:46.272943" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:42:46.273904" level="INFO">${product_names} = []</msg>
+<var>${product_names}</var>
+<status status="PASS" start="2024-05-18T21:42:46.265927" elapsed="0.007977"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:42:46.274904" level="INFO">${sorted_product_names} = []</msg>
+<var>${sorted_product_names}</var>
+<arg>${product_names}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:42:46.274904" elapsed="0.000000"/>
+</kw>
+<kw name="Sort List">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:42:46.281884" level="INFO">${sorted_list} = []</msg>
+<var>${sorted_list}</var>
+<arg>sorted($list)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:42:46.276899" elapsed="0.004985"/>
+</kw>
+<return>
+<value>${sorted_list}</value>
+<status status="PASS" start="2024-05-18T21:42:46.282882" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:42:46.282882" level="INFO">${sorted_product_names} = []</msg>
+<var>${sorted_product_names}</var>
+<arg>${sorted_product_names}</arg>
+<status status="PASS" start="2024-05-18T21:42:46.275901" elapsed="0.006981"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-05-18T21:42:46.283891" level="INFO">False</msg>
+<arg>${product_names}</arg>
+<arg>${sorted_product_names}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:42:46.283891" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:42:46.284875" elapsed="3.079531"/>
+</kw>
+<doc>Test to verify sorting products by name from A to Z.</doc>
+<status status="PASS" start="2024-05-18T21:42:32.657293" elapsed="16.708107"/>
+</test>
+<test id="s1-t2" name="Module7_2" line="20">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:42:49.368391" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:42:49.367393" elapsed="11.304792"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:00.673183" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 2.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>2</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:43:00.673183" elapsed="1.048199"/>
+</kw>
+<kw name="Get Product Names">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:01.732363" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//div[contains(@class, 'prdocutname')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:43:01.723377" elapsed="0.008986"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:43:01.733349" level="INFO">${product_names} = []</msg>
+<var>${product_names}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:43:01.733349" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_name}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:01.733349" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_names}</arg>
+<arg>${product_name}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:01.734345" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:43:01.733349" elapsed="0.000996"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:43:01.733349" elapsed="0.000996"/>
+</for>
+<return>
+<value>${product_names}</value>
+<status status="PASS" start="2024-05-18T21:43:01.734345" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:01.734345" level="INFO">${product_names} = []</msg>
+<var>${product_names}</var>
+<status status="PASS" start="2024-05-18T21:43:01.722379" elapsed="0.011966"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:43:01.735356" level="INFO">${sorted_product_names} = []</msg>
+<var>${sorted_product_names}</var>
+<arg>${product_names}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:43:01.735356" elapsed="0.000000"/>
+</kw>
+<kw name="Sort List">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:43:01.737339" level="INFO">${sorted_list} = []</msg>
+<var>${sorted_list}</var>
+<arg>sorted($list)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:43:01.736341" elapsed="0.000998"/>
+</kw>
+<return>
+<value>${sorted_list}</value>
+<status status="PASS" start="2024-05-18T21:43:01.737339" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:01.737339" level="INFO">${sorted_product_names} = []</msg>
+<var>${sorted_product_names}</var>
+<arg>${sorted_product_names}</arg>
+<status status="PASS" start="2024-05-18T21:43:01.736341" elapsed="0.000998"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-05-18T21:43:01.738351" level="INFO">False</msg>
+<arg>${product_names}</arg>
+<arg>${sorted_product_names}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:43:01.738351" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:43:01.739339" elapsed="3.166530"/>
+</kw>
+<doc>Test to verify sorting products by name from A to Z.</doc>
+<status status="PASS" start="2024-05-18T21:42:49.366397" elapsed="15.540469"/>
+</test>
+<test id="s1-t3" name="Module7_3" line="30">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:04.908865" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:43:04.908865" elapsed="15.630230"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:20.540090" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 3.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>3</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:43:20.540090" elapsed="1.098067"/>
+</kw>
+<kw name="Get Product Prices">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:21.650132" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//span[contains(@class, 'pricetag')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:43:21.639155" elapsed="0.010977"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:43:21.650132" level="INFO">${product_prices} = []</msg>
+<var>${product_prices}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:43:21.650132" elapsed="0.001025"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_price}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:21.651157" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_prices}</arg>
+<arg>${product_price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:21.651157" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:43:21.651157" elapsed="0.000000"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:43:21.651157" elapsed="0.000000"/>
+</for>
+<return>
+<value>${product_prices}</value>
+<status status="PASS" start="2024-05-18T21:43:21.651157" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:21.652154" level="INFO">${product_prices} = []</msg>
+<var>${product_prices}</var>
+<status status="PASS" start="2024-05-18T21:43:21.639155" elapsed="0.012999"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:43:21.653118" level="INFO">${sorted_product_prices} = []</msg>
+<var>${sorted_product_prices}</var>
+<arg>${product_prices}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:43:21.653118" elapsed="0.000000"/>
+</kw>
+<kw name="Sort List">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:43:21.655111" level="INFO">${sorted_list} = []</msg>
+<var>${sorted_list}</var>
+<arg>sorted($list)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:43:21.654113" elapsed="0.000998"/>
+</kw>
+<return>
+<value>${sorted_list}</value>
+<status status="PASS" start="2024-05-18T21:43:21.655111" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:21.655111" level="INFO">${sorted_product_prices} = []</msg>
+<var>${sorted_product_prices}</var>
+<arg>${sorted_product_prices}</arg>
+<status status="PASS" start="2024-05-18T21:43:21.654113" elapsed="0.000998"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-05-18T21:43:21.656107" level="INFO">False</msg>
+<arg>${product_prices}</arg>
+<arg>${sorted_product_prices}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:43:21.656107" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:43:21.656107" elapsed="3.030901"/>
+</kw>
+<doc>Test to verify sorting products by price from low to high.</doc>
+<status status="PASS" start="2024-05-18T21:43:04.906866" elapsed="19.780142"/>
+</test>
+<test id="s1-t4" name="Module7_4" line="40">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:24.689005" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:43:24.689005" elapsed="12.625259"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:37.316261" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 4.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>4</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:43:37.315263" elapsed="1.239686"/>
+</kw>
+<kw name="Get Product Prices">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:38.567914" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//span[contains(@class, 'pricetag')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:43:38.556944" elapsed="0.010970"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:43:38.568913" level="INFO">${product_prices} = []</msg>
+<var>${product_prices}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:43:38.568913" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_price}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:38.568913" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_prices}</arg>
+<arg>${product_price}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:38.569910" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:43:38.568913" elapsed="0.000997"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:43:38.568913" elapsed="0.000997"/>
+</for>
+<return>
+<value>${product_prices}</value>
+<status status="PASS" start="2024-05-18T21:43:38.569910" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:38.569910" level="INFO">${product_prices} = []</msg>
+<var>${product_prices}</var>
+<status status="PASS" start="2024-05-18T21:43:38.555946" elapsed="0.013964"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:43:38.570908" level="INFO">${sorted_product_prices} = []</msg>
+<var>${sorted_product_prices}</var>
+<arg>${product_prices}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:43:38.570908" elapsed="0.000000"/>
+</kw>
+<kw name="Sort List">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:43:38.571904" level="INFO">${sorted_list} = []</msg>
+<var>${sorted_list}</var>
+<arg>sorted($list)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:43:38.571904" elapsed="0.000998"/>
+</kw>
+<return>
+<value>${sorted_list}</value>
+<status status="PASS" start="2024-05-18T21:43:38.572902" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:38.572902" level="INFO">${sorted_product_prices} = []</msg>
+<var>${sorted_product_prices}</var>
+<arg>${sorted_product_prices}</arg>
+<status status="PASS" start="2024-05-18T21:43:38.571904" elapsed="0.000998"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-05-18T21:43:38.574896" level="INFO">False</msg>
+<arg>${product_prices}</arg>
+<arg>${sorted_product_prices}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:43:38.573905" elapsed="0.000991"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:43:38.575893" elapsed="3.170528"/>
+</kw>
+<doc>Test to verify sorting products by price from high to low.</doc>
+<status status="PASS" start="2024-05-18T21:43:24.688009" elapsed="17.059407"/>
+</test>
+<test id="s1-t5" name="Module7_5" line="50">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:41.750444" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:43:41.750444" elapsed="13.252550"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:55.003991" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 5.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>5</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:43:55.003991" elapsed="1.131976"/>
+</kw>
+<kw name="Get Product Ratings">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:56.151924" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//div[contains(@class, 'starrating')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:43:56.146940" elapsed="0.004984"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:43:56.152921" level="INFO">${product_ratings} = []</msg>
+<var>${product_ratings}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:43:56.151924" elapsed="0.000997"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_rating}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:56.152921" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_ratings}</arg>
+<arg>${product_rating}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:43:56.152921" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:43:56.152921" elapsed="0.000000"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:43:56.152921" elapsed="0.000996"/>
+</for>
+<return>
+<value>${product_ratings}</value>
+<status status="PASS" start="2024-05-18T21:43:56.153917" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:56.153917" level="INFO">${product_ratings} = []</msg>
+<var>${product_ratings}</var>
+<status status="PASS" start="2024-05-18T21:43:56.145940" elapsed="0.007977"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:43:56.154930" level="INFO">${sorted_product_ratings} = []</msg>
+<var>${sorted_product_ratings}</var>
+<arg>${product_ratings}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:43:56.154930" elapsed="0.000000"/>
+</kw>
+<kw name="Sort List By Rating">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:43:56.156909" level="INFO">${sorted_list} = []</msg>
+<var>${sorted_list}</var>
+<arg>sorted($list, key=lambda x: float(x.split()[0]), reverse=True)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:43:56.155913" elapsed="0.000996"/>
+</kw>
+<return>
+<value>${sorted_list}</value>
+<status status="PASS" start="2024-05-18T21:43:56.156909" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:43:56.156909" level="INFO">${sorted_product_ratings} = []</msg>
+<var>${sorted_product_ratings}</var>
+<arg>${sorted_product_ratings}</arg>
+<status status="PASS" start="2024-05-18T21:43:56.155913" elapsed="0.001995"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-05-18T21:43:56.163895" level="INFO">False</msg>
+<arg>${product_ratings}</arg>
+<arg>${sorted_product_ratings}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:43:56.161906" elapsed="0.001989"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:43:56.166900" elapsed="3.204420"/>
+</kw>
+<doc>Test to verify sorting products by rating highest.</doc>
+<status status="PASS" start="2024-05-18T21:43:41.749412" elapsed="17.622906"/>
+</test>
+<test id="s1-t6" name="Module7_6" line="60">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:43:59.375310" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:43:59.374313" elapsed="12.298135"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:44:11.674445" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 6.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>6</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:44:11.673445" elapsed="1.155918"/>
+</kw>
+<kw name="Get Product Ratings">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:44:12.836339" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//div[contains(@class, 'starrating')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:44:12.830353" elapsed="0.005986"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:44:12.836339" level="INFO">${product_ratings} = []</msg>
+<var>${product_ratings}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:44:12.836339" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_rating}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:44:12.837335" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_ratings}</arg>
+<arg>${product_rating}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:44:12.837335" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:44:12.837335" elapsed="0.000000"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:44:12.837335" elapsed="0.000000"/>
+</for>
+<return>
+<value>${product_ratings}</value>
+<status status="PASS" start="2024-05-18T21:44:12.837335" elapsed="0.000998"/>
+</return>
+<msg time="2024-05-18T21:44:12.838333" level="INFO">${product_ratings} = []</msg>
+<var>${product_ratings}</var>
+<status status="PASS" start="2024-05-18T21:44:12.830353" elapsed="0.007980"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:44:12.839329" level="INFO">${sorted_product_ratings} = []</msg>
+<var>${sorted_product_ratings}</var>
+<arg>${product_ratings}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:44:12.839329" elapsed="0.000000"/>
+</kw>
+<kw name="Sort List By Rating">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:44:12.842322" level="INFO">${sorted_list} = []</msg>
+<var>${sorted_list}</var>
+<arg>sorted($list, key=lambda x: float(x.split()[0]), reverse=True)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:44:12.841324" elapsed="0.000998"/>
+</kw>
+<return>
+<value>${sorted_list}</value>
+<status status="PASS" start="2024-05-18T21:44:12.843319" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:44:12.843319" level="INFO">${sorted_product_ratings} = []</msg>
+<var>${sorted_product_ratings}</var>
+<arg>${sorted_product_ratings}</arg>
+<status status="PASS" start="2024-05-18T21:44:12.840337" elapsed="0.002982"/>
+</kw>
+<kw name="Lists Should Be Equal" owner="Collections">
+<msg time="2024-05-18T21:44:12.845325" level="INFO">False</msg>
+<arg>${product_ratings}</arg>
+<arg>${sorted_product_ratings}</arg>
+<doc>Fails if given lists are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:44:12.844318" elapsed="0.001007"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:44:12.846310" elapsed="3.010953"/>
+</kw>
+<doc>Test to verify sorting products by rating lowest.</doc>
+<status status="PASS" start="2024-05-18T21:43:59.374313" elapsed="16.482950"/>
+</test>
+<test id="s1-t7" name="Module7_7" line="70">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:44:15.860256" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:44:15.859259" elapsed="13.057617"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:44:28.918869" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 0.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>0</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:44:28.917872" elapsed="0.093750"/>
+</kw>
+<kw name="Get Product Dates">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:44:29.019600" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//span[@class='date']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:44:29.013615" elapsed="0.005985"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:44:29.019600" level="INFO">${product_dates} = []</msg>
+<var>${product_dates}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:44:29.019600" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_date}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:44:29.020598" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_dates}</arg>
+<arg>${product_date}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:44:29.021595" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:44:29.020598" elapsed="0.000997"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:44:29.020598" elapsed="0.000997"/>
+</for>
+<return>
+<value>${product_dates}</value>
+<status status="PASS" start="2024-05-18T21:44:29.021595" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:44:29.022592" level="INFO">${product_dates} = []</msg>
+<var>${product_dates}</var>
+<status status="PASS" start="2024-05-18T21:44:29.012620" elapsed="0.009972"/>
+</kw>
+<kw name="Sort List By Date Old To New">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:44:29.025585" level="INFO">${sorted_dates} = []</msg>
+<var>${sorted_dates}</var>
+<arg>sorted($dates, key=lambda x: datetime.strptime(x, '%m/%d/%Y'))</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:44:29.023590" elapsed="0.001995"/>
+</kw>
+<return>
+<value>${sorted_dates}</value>
+<status status="PASS" start="2024-05-18T21:44:29.025585" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:44:29.026589" level="INFO">${sorted_product_dates} = []</msg>
+<var>${sorted_product_dates}</var>
+<arg>${product_dates}</arg>
+<status status="PASS" start="2024-05-18T21:44:29.022592" elapsed="0.003997"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-18T21:44:29.027579" level="INFO">[]</msg>
+<arg>${sorted_product_dates}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-18T21:44:29.027579" elapsed="0.000000"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:44:29.028578" elapsed="3.188478"/>
+</kw>
+<doc>Test to verify sorting products by date from old to new.</doc>
+<status status="PASS" start="2024-05-18T21:44:15.859259" elapsed="16.358796"/>
+</test>
+<test id="s1-t8" name="Module7_8" line="79">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:44:32.221046" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/index.php?rt=product/category&amp;path=68_69'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:44:32.220048" elapsed="14.281838"/>
+</kw>
+<kw name="Select From List By Index" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:12.820696" level="INFO">Selecting options from selection list 'xpath=//*[@id="sort"]' by index 7.</msg>
+<arg>xpath=//*[@id="sort"]</arg>
+<arg>7</arg>
+<doc>Selects options from selection list ``locator`` by ``indexes``.</doc>
+<status status="PASS" start="2024-05-18T21:45:12.820696" elapsed="1.011296"/>
+</kw>
+<kw name="Get Product Dates">
+<kw name="Get WebElements" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:13.838974" level="INFO">${product_elements} = []</msg>
+<var>${product_elements}</var>
+<arg>xpath=//div[@class='fixed_wrapper']//span[@class='date']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:45:13.833004" elapsed="0.005970"/>
+</kw>
+<kw name="Create List" owner="BuiltIn">
+<msg time="2024-05-18T21:45:13.840009" level="INFO">${product_dates} = []</msg>
+<var>${product_dates}</var>
+<doc>Returns a list containing given items.</doc>
+<status status="PASS" start="2024-05-18T21:45:13.840009" elapsed="0.000000"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Get Text" owner="SeleniumLibrary">
+<var>${product_date}</var>
+<arg>${product_element}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:45:13.840009" elapsed="0.000000"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${product_dates}</arg>
+<arg>${product_date}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2024-05-18T21:45:13.840971" elapsed="0.000000"/>
+</kw>
+<var name="${product_element}"/>
+<status status="NOT RUN" start="2024-05-18T21:45:13.840009" elapsed="0.000962"/>
+</iter>
+<var>${product_element}</var>
+<value>@{product_elements}</value>
+<status status="NOT RUN" start="2024-05-18T21:45:13.840009" elapsed="0.000962"/>
+</for>
+<return>
+<value>${product_dates}</value>
+<status status="PASS" start="2024-05-18T21:45:13.840971" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:45:13.840971" level="INFO">${product_dates} = []</msg>
+<var>${product_dates}</var>
+<status status="PASS" start="2024-05-18T21:45:13.833004" elapsed="0.007967"/>
+</kw>
+<kw name="Sort List By Date New To Old">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-18T21:45:13.842965" level="INFO">${sorted_dates} = []</msg>
+<var>${sorted_dates}</var>
+<arg>sorted($dates, key=lambda x: datetime.strptime(x, '%m/%d/%Y'), reverse=True)</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-18T21:45:13.842965" elapsed="0.000000"/>
+</kw>
+<return>
+<value>${sorted_dates}</value>
+<status status="PASS" start="2024-05-18T21:45:13.842965" elapsed="0.000000"/>
+</return>
+<msg time="2024-05-18T21:45:13.843962" level="INFO">${sorted_product_dates} = []</msg>
+<var>${sorted_product_dates}</var>
+<arg>${product_dates}</arg>
+<status status="PASS" start="2024-05-18T21:45:13.841978" elapsed="0.001984"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2024-05-18T21:45:13.844959" level="INFO">[]</msg>
+<arg>${sorted_product_dates}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2024-05-18T21:45:13.843962" elapsed="0.000997"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-18T21:45:13.845956" elapsed="3.029904"/>
+</kw>
+<doc>Test to verify sorting products by date from new to old.</doc>
+<status status="PASS" start="2024-05-18T21:44:32.219050" elapsed="44.657806"/>
+</test>
+<test id="s1-t9" name="Module7_9" line="88">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:45:16.879878" level="INFO">${url} = https://automationteststore.com/</msg>
+<var>${url}</var>
+<arg>https://automationteststore.com/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:45:16.879878" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:16.880847" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:45:16.880847" elapsed="15.188420"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:32.070254" level="INFO">Typing text 'Creme Precieuse Nuit 50ml' into text field 'xpath=//*[@id="filter_keyword"]'.</msg>
+<arg>xpath=//*[@id="filter_keyword"]</arg>
+<arg>Creme Precieuse Nuit 50ml</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:45:32.070254" elapsed="0.146612"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:32.217861" level="INFO">Clicking element 'xpath=//*[@id="search_form"]/div/div/i'.</msg>
+<arg>xpath=//*[@id="search_form"]/div/div/i</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:45:32.216866" elapsed="1.948827"/>
+</kw>
+<kw name="Get Text" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:34.190590" level="INFO">${name product} = Creme Precieuse Nuit 50ml</msg>
+<var>${name product}</var>
+<arg>xpath=//*[@id="product_details"]/div/div[2]/div/div/h1/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:45:34.166690" elapsed="0.023900"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${name product}</arg>
+<arg>Creme Precieuse Nuit 50ml</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-05-18T21:45:34.191587" elapsed="0.001995"/>
+</kw>
+<doc>Searching product "Creme Precieuse Nuit 50ml"</doc>
+<status status="PASS" start="2024-05-18T21:45:16.878851" elapsed="17.315741"/>
+</test>
+<test id="s1-t10" name="Module7_10" line="97">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:45:34.196574" level="INFO">${url} = https://automationteststore.com/</msg>
+<var>${url}</var>
+<arg>https://automationteststore.com/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:45:34.196574" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:34.198567" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:45:34.197570" elapsed="15.470886"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:49.669449" level="INFO">Typing text 'ạnernbjwngjenbjdmwlkenfrelbnwfnewgn' into text field 'xpath=//*[@id="filter_keyword"]'.</msg>
+<arg>xpath=//*[@id="filter_keyword"]</arg>
+<arg>ạnernbjwngjenbjdmwlkenfrelbnwfnewgn</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:45:49.669449" elapsed="0.131651"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:49.801100" level="INFO">Clicking element 'xpath=//*[@id="search_form"]/div/div/i'.</msg>
+<arg>xpath=//*[@id="search_form"]/div/div/i</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:45:49.801100" elapsed="1.217744"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:51.033806" level="INFO">Current page contains element 'xpath=//*[@id="maincontainer"]/div/div/div/div/div[2]'.</msg>
+<arg>xpath=//*[@id="maincontainer"]/div/div/div/div/div[2]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-05-18T21:45:51.020838" elapsed="0.012968"/>
+</kw>
+<doc>Searching keyword "ạnernbjwngjenbjdmwlkenfrelbnwfnewgn"</doc>
+<status status="PASS" start="2024-05-18T21:45:34.195576" elapsed="16.839225"/>
+</test>
+<test id="s1-t11" name="Module7_11" line="105">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-05-18T21:45:51.036799" level="INFO">${url} = https://automationteststore.com/</msg>
+<var>${url}</var>
+<arg>https://automationteststore.com/</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-05-18T21:45:51.036799" elapsed="0.000000"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:45:51.037795" level="INFO">Opening browser 'fire fox' to base url 'https://automationteststore.com/'.</msg>
+<arg>${url}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-18T21:45:51.037795" elapsed="14.713681"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:46:05.752471" level="INFO">Clicking element 'xpath=//*[@id="search_form"]/div/div/i'.</msg>
+<arg>xpath=//*[@id="search_form"]/div/div/i</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-18T21:46:05.751476" elapsed="1.055179"/>
+</kw>
+<kw name="Page Should Contain Element" owner="SeleniumLibrary">
+<msg time="2024-05-18T21:46:06.820619" level="INFO">Current page contains element 'xpath=//*[@id="maincontainer"]/div/div/div/div/div[2]'.</msg>
+<arg>xpath=//*[@id="maincontainer"]/div/div/div/div/div[2]</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<status status="PASS" start="2024-05-18T21:46:06.807662" elapsed="0.012957"/>
+</kw>
+<doc>Searching empty keyword</doc>
+<status status="PASS" start="2024-05-18T21:45:51.035802" elapsed="15.785815"/>
+</test>
+<status status="PASS" start="2024-05-18T21:42:32.364077" elapsed="214.460528"/>
+</suite>
+<statistics>
+<total>
+<stat pass="11" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="11" fail="0" skip="0" id="s1" name="Module7">Module7</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-05-18T21:42:32.349158" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 120: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.350118" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 129: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.351111" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 134: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.352117" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 143: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.353120" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 148: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.355100" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 157: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.356097" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 162: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+<msg time="2024-05-18T21:42:32.356097" level="WARN">Error in file 'C:\Users\Administrator\Documents\final-term test\Modules\Module7.robot' on line 167: The '[Return]' setting is deprecated. Use the 'RETURN' statement instead.</msg>
+</errors>
+</robot>
